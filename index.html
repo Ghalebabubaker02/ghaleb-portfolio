@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Video Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ================= GOOGLE ANALYTICS (GA4) =================
+       1. افتح حساب Google Analytics
+       2. أنشئ Measurement ID (مثل G-XXXXXXX)
+       3. استبدل G-XXXXXXX في السطرين تحت
+  -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-XXXXXXX");
+  </script> -->
+  <!-- ================= END GOOGLE ANALYTICS =================== -->
+
+  <style>
+    :root {
+      --navy: #0b1736;
+      --red: #e53935;
+      --light-bg: #f5f7fb;
+      --text-main: #1e1e1e;
+      --text-light: #888;
+      --card-bg: #ffffff;
+      --border-soft: #dde2f0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: var(--light-bg);
+      color: var(--text-main);
+    }
+
+    /* ======= HEADER / NAVBAR ======= */
+    header {
+      background: var(--navy);
+      color: #fff;
+      padding: 12px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #dbe2ff;
+      font-size: 0.98rem;
+      padding: 6px 12px;
+      border-radius: 999px;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.15s;
+    }
+
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-1px);
+    }
+
+    nav a.active {
+      background: var(--red);
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* ======= LAYOUT ======= */
+    main {
+      max-width: 1100px;
+      margin: 24px auto 40px;
+      padding: 0 16px;
+    }
+
+    section {
+      display: none;
+      animation: fadeIn 0.28s ease;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+      color: var(--navy);
+    }
+
+    .section-subtitle {
+      color: var(--text-light);
+      margin-bottom: 24px;
+    }
+
+    /* ======= HOME SECTION ======= */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 24px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+    }
+
+    .hero-text p {
+      margin-bottom: 18px;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .tag {
+      font-size: 0.8rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      background: #fff;
+    }
+
+    .hero-card {
+      background: linear-gradient(140deg, var(--navy), #1f325e);
+      color: #fff;
+      padding: 18px 18px 14px;
+      border-radius: 18px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .hero-card h2 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .hero-card p {
+      font-size: 0.9rem;
+      color: #e2e8ff;
+    }
+
+    /* ======= PORTFOLIO SECTION ======= */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .video-card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      border: 1px solid var(--border-soft);
+      padding: 10px 10px 14px;
+      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.08);
+    }
+
+    .video-card video, 
+    .video-card iframe {
+      width: 100%;
+      border-radius: 10px;
+      display: block;
+    }
+
+    .video-title {
+      margin-top: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .video-meta {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-top: 4px;
+    }
+
+    /* ======= ABOUT SECTION ======= */
+    .about-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    .about-box {
+      background: var(--card-bg);
+      border-radius: 16px;
+      border: 1px solid var(--border-soft);
+      padding: 18px;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    .about-box h3 {
+      margin-bottom: 10px;
+      color: var(--navy);
+    }
+
+    .about-box p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: var(--text-main);
+    }
+
+    .about-list {
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    .about-list li {
+      font-size: 0.9rem;
+      padding: 5px 0;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px dashed var(--border-soft);
+    }
+
+    .about-list span {
+      color: var(--text-light);
+      font-size: 0.88rem;
+    }
+
+    /* ======= AD SLOT ======= */
+    .ad-slot {
+      margin: 26px 0;
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px dashed var(--red);
+      background: rgba(229, 57, 53, 0.03);
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    /* ======= FOOTER ======= */
+    footer {
+      text-align: center;
+      padding: 18px;
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+
+    /* ======= RESPONSIVE ======= */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .hero,
+      .about-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        order: -1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Ghaleb Abubaker</div>
+    <nav>
+      <ul>
+        <li><a href="#" class="nav-link active" data-section="home">Home</a></li>
+        <li><a href="#" class="nav-link" data-section="portfolio">Portfolio</a></li>
+        <li><a href="#" class="nav-link" data-section="about">About Me</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============ HOME ============ -->
+    <section id="home" class="active">
+      <h2 class="section-title">Welcome</h2>
+      <p class="section-subtitle">Video Editor · Content Creator</p>
+
+      <div class="hero">
+        <div class="hero-text">
+          <h1>Hi, I’m Ghaleb Abubaker</h1>
+          <p>
+            I create cinematic edits, social media content, and storytelling videos
+            for brands and creators. This website is my personal portfolio where
+            you can watch some of my latest work.
+          </p>
+          <p>
+            Scroll through the portfolio section to explore my videos, or reach out
+            if you’d like to collaborate.
+          </p>
+
+          <div class="hero-tags">
+            <div class="tag">Video Editing</div>
+            <div class="tag">Color Grading</div>
+            <div class="tag">Motion Graphics</div>
+            <div class="tag">Social Media Content</div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <h2>Now Available for Projects</h2>
+          <p>
+            Need an editor for your brand, YouTube channel, or social media ads?
+            Let’s build something powerful together.
+          </p>
+        </div>
+      </div>
+
+      <!-- مثال مكان إعلان -->
+<div class="instagram-section">
+  <h3 class="insta-title">My Instagram Work</h3>
+  <p class="insta-subtitle">Latest edits from my Instagram portfolio</p>
+
+  <div class="insta-grid">
+
+    <!-- ===== مثال بوست 1 — استبدل بالرابط تبعك ===== -->
+    <div class="insta-card">
+      <blockquote 
+        class="instagram-media" 
+        data-instgrm-permalink=https://www.instagram.com/reel/DMnrsaKMxSC/
+        data-instgrm-version="14">
+      </blockquote>
+    </div>
+
+    <!-- ===== مثال بوست 2 ===== -->
+    <div class="insta-card">
+      <blockquote 
+        class="instagram-media" 
+        data-instgrm-permalink="https://www.instagram.com/p/YYYYYYYYYYY/" 
+        data-instgrm-version="14">
+      </blockquote>
+    </div>
+
+    <!-- ===== مثال بوست 3 ===== -->
+    <div class="insta-card">
+      <blockquote 
+        class="instagram-media" 
+        data-instgrm-permalink="https://www.instagram.com/p/ZZZZZZZZZZZ/" 
+        data-instgrm-version="14">
+      </blockquote>
+    </div>
+
+  </div>
+</div>
+
+<script async src="//www.instagram.com/embed.js"></script>
+    <!-- ============ PORTFOLIO ============ -->
+    <section id="portfolio">
+      <h2 class="section-title">Portfolio</h2>
+      <p class="section-subtitle">
+        هنا تقدر تضيف فيديوهاتك (ملفات مباشرة أو من YouTube / Vimeo).
+      </p>
+
+      <div class="video-grid">
+        <!-- Video 1 – ملف داخل نفس الموقع -->
+        <div class="video-card">
+          <video controls preload="metadata">
+            <!-- حط مسار الفيديو تبعك -->
+            <source src="videos/project1.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div class="video-title">Brand Promo – 2025</div>
+          <div class="video-meta">Client: Example Brand · Duration: 0:30</div>
+        </div>
+
+        <!-- Video 2 – من YouTube -->
+        <div class="video-card">
+          <!-- استبدل YOUTUBE_VIDEO_ID بالآيدي تبع الفيديو -->
+          <iframe
+            src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID"
+            title="YouTube video"
+            frameborder="0"
+            allowfullscreen>
+          </iframe>
+          <div class="video-title">YouTube Edit – Travel Vlog</div>
+          <div class="video-meta">Personal Project · 4K</div>
+        </div>
+
+        <!-- Video 3 – مثال آخر -->
+        <div class="video-card">
+          <video controls preload="metadata">
+            <source src="videos/project2.mp4" type="video/mp4" />
+          </video>
+          <div class="video-title">Social Media Ad</div>
+          <div class="video-meta">Client: Startup · Vertical Reel</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ME ============ -->
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-subtitle">Get to know who’s behind the edits.</p>
+
+      <div class="about-layout">
+        <div class="about-box">
+          <h3>Bio</h3>
+          <p>
+            I’m a video editor and content creator specializing in social media,
+            short-form content, and storytelling for brands. I work with clients
+            to turn raw footage into engaging videos that keep viewers watching
+            until the last second.
+          </p>
+          <p style="margin-top: 10px;">
+            Software I use: Adobe Premiere Pro, After Effects, DaVinci Resolve,
+            Photoshop, and more.
+          </p>
+        </div>
+
+        <div class="about-box">
+          <h3>Details</h3>
+          <ul class="about-list">
+            <li>
+              <strong>Email</strong>
+              <span>ghalebabuubaker4@gmail.com]</span>
+            </li>
+            <li>
+              <strong>Services</strong>
+              <span>Editing · Color</span>
+            </li>
+            <li>
+              <strong>instagram</strong>
+              <span>@Ghalebb___</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Ghaleb Abubaker – All Rights Reserved.
+  </footer>
+
+  <script>
+    // تغيير السنة تلقائيًا
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // تبديل التبويبات (Home / Portfolio / About Me)
+    const links = document.querySelectorAll(".nav-link");
+    const sections = document.querySelectorAll("main section");
+
+    links.forEach(link => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const target = link.getAttribute("data-section");
+
+        // فعل/عطّل اللنكات
+        links.forEach(l => l.classList.remove("active"));
+        link.classList.add("active");
+
+        // فعل/عطّل السيكشنز
+        sections.forEach(section => {
+          if (section.id === target) {
+            section.classList.add("active");
+          } else {
+            section.classList.remove("active");
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

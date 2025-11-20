@@ -1,0 +1,41 @@
+.instagram-section {
+  margin: 40px 0;
+  padding: 20px;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px solid #dde2f0;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+.insta-title {
+  font-size: 1.6rem;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.insta-subtitle {
+  color: var(--text-light);
+  margin-bottom: 20px;
+}
+
+.insta-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, 1fr); /* 3 بوستات دائمًا */
+}
+@media (max-width: 992px) {
+  .insta-grid {
+    grid-template-columns: repeat(2, 1fr); /* تابلت */
+  }
+}
+
+@media (max-width: 600px) {
+  .insta-grid {
+    grid-template-columns: 1fr; /* موبايل */
+  }
+}
+
+.insta-card {
+  border-radius: 14px;
+  overflow: hidden;
+}

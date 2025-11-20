@@ -20,14 +20,37 @@
 
 .insta-grid {
   display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 جنب بعض */
   gap: 20px;
-  grid-template-columns: repeat(3, 1fr); /* 3 بوستات دائمًا */
+  width: 100%;
 }
+
+.insta-card {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* حل مشكلة الـ Instagram iframe */
+.instagram-media {
+  width: 100% !important;
+  min-width: 100% !important;
+  margin: 0 auto !important;
+}
+
+/* شاشات متوسطة */
 @media (max-width: 992px) {
   .insta-grid {
-    grid-template-columns: repeat(2, 1fr); /* تابلت */
+    grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* شاشات صغيرة */
+@media (max-width: 600px) {
+  .insta-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 @media (max-width: 600px) {
   .insta-grid {

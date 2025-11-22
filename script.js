@@ -52,3 +52,7 @@ document.addEventListener("DOMContentLoaded", function(){
   };
   document.body.appendChild(particles);
 });
+document.querySelector(".scroll-btn").addEventListener("click", (e)=>{
+    e.preventDefault();
+    document.querySelector("#portfolio").scrollIntoView({behavior:"smooth"});
+});

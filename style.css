@@ -1,116 +1,181 @@
-.instagram-section {
-  margin: 40px 0;
-  padding: 20px;
-  border-radius: 18px;
-  background: #ffffff;
-  border: 1px solid #dde2f0;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Inter:wght@300;400;600&display=swap');
+
+:root {
+    --bg: #0b0b0b;
+    --text: #f2f2f2;
+    --red: #e53935;
+    --grey: #999;
 }
 
-.insta-title {
-  font-size: 1.6rem;
-  color: var(--navy);
-  margin-bottom: 6px;
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Tajawal', sans-serif;
 }
 
-.insta-subtitle {
-  color: var(--text-light);
-  margin-bottom: 20px;
+/* HERO */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
-.insta-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 جنب بعض */
-  gap: 20px;
-  width: 100%;
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.4) saturate(1.2);
 }
 
-.insta-card {
-  width: 100%;
-  overflow: hidden;
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(rgba(229,57,53,0.15), rgba(0,0,0,0.85));
 }
 
-/* حل مشكلة الـ Instagram iframe */
-.instagram-media {
-  width: 100% !important;
-  min-width: 100% !important;
-  margin: 0 auto !important;
+.hero-content {
+    position: absolute;
+    text-align: center;
 }
 
-/* شاشات متوسطة */
-@media (max-width: 992px) {
-  .insta-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 10px;
+    color: var(--red);
 }
 
-/* شاشات صغيرة */
-@media (max-width: 600px) {
-  .insta-grid {
-    grid-template-columns: 1fr;
-  }
+.hero p {
+    font-size: 1.3rem;
 }
 
-.insta-card {
-  border-radius: 14px;
-  overflow: hidden;
+.cta-btn {
+    margin-top: 20px;
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--red);
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
 }
 
-.hero-card {
-  background: linear-gradient(140deg, var(--navy), #1f325e);
-  color: #fff;
-  padding: 18px 18px 14px;
-  border-radius: 18px;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
-  width: fit-content;
-  max-width: 320px; /* مهم حتى يثبت الحجم */
+/* SECTIONS */
+section {
+    padding: 80px 10%;
+    text-align: center;
 }
 
-.contact-trigger {
-  cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+/* ABOUT */
+.about p {
+    max-width: 700px;
+    margin: auto;
+    color: var(--grey);
 }
 
-.contact-trigger:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+/* PORTFOLIO */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
-main {
-  position: relative;
+.item {
+    background: #1a1a1a;
+    padding: 60px 0;
+    border: 1px solid #222;
 }
 
-/* ================= LEFT BANNER ================= */
-.side-banner {
-  position: absolute;
-  left: 0;
-  top: 150px;
-  width: 260px;
-  height: 150px;
-  background: linear-gradient(135deg, #0b1736, #1f325e);
-  border-radius: 20px;
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-  z-index: 9999;
+/* CLIENTS */
+.clients-logos {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
 }
 
-.banner-text {
-  color: #fff;
-  font-size: 1.25rem;
-  font-weight: 600;
-  animation: fadeLoop 4s ease-in-out infinite;
+.logo {
+    border: 1px solid #222;
+    padding: 20px 40px;
 }
 
-@keyframes fadeLoop {
-  0% { opacity: 0; }
-  20% { opacity: 1; }
-  70% { opacity: 1; }
-  100% { opacity: 0; }
+/* SERVICES */
+.services-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
 }
 
-main {
-  position: relative;
+.serv-box {
+    background: #1a1a1a;
+    padding: 30px;
+    width: 300px;
+    border: 1px solid #222;
+}
+
+/* TESTIMONIALS */
+.test-box {
+    background: #1a1a1a;
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 600px;
+    border: 1px solid #222;
+    color: var(--grey);
+}
+
+/* CONTACT */
+form {
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input, textarea {
+    padding: 12px;
+    background: #111;
+    border: 1px solid #333;
+    color: #fff;
+}
+
+button {
+    padding: 12px;
+    background: var(--red);
+    color: #fff;
+    border: none;
+}
+
+/* FOOTER */
+footer {
+    padding: 40px;
+    text-align: center;
+    border-top: 1px solid #222;
+}
+
+.social a {
+    margin: 0 10px;
+    color: var(--red);
+    text-decoration: none;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .services-grid {
+        flex-direction: column;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
 }

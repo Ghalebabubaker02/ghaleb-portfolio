@@ -76,17 +76,15 @@
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
 
-/* ======== ضفناه هون ========== */
 main {
   position: relative;
 }
-/* =============================== */
 
 /* ================= LEFT BANNER ================= */
 .side-banner {
   position: absolute;
   left: 0;
-  top: 350px; /* تحكم بارتفاع البانر */
+  top: 150px;
   width: 260px;
   height: 150px;
   background: linear-gradient(135deg, #0b1736, #1f325e);
@@ -96,27 +94,23 @@ main {
   align-items: center;
   justify-content: center;
   box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  z-index: 9999;
 }
 
 .banner-text {
   color: #fff;
   font-size: 1.25rem;
   font-weight: 600;
-  text-align: center;
   animation: fadeLoop 4s ease-in-out infinite;
 }
 
-/* fade in + fade out animation */
 @keyframes fadeLoop {
-  0% { opacity: 0; transform: translateY(6px); }
-  20% { opacity: 1; transform: translateY(0); }
+  0% { opacity: 0; }
+  20% { opacity: 1; }
   70% { opacity: 1; }
-  100% { opacity: 0; transform: translateY(-6px); }
+  100% { opacity: 0; }
 }
 
-/* responsive — hide on phones */
-@media (max-width: 992px) {
-  .side-banner {
-    display: none;
-  }
+main {
+  position: relative;
 }

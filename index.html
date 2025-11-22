@@ -1,399 +1,116 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <meta charset="UTF-8" />
-  <title>Ghaleb Abubaker - Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ghaleb Abubaker – Portfolio</title>
 
-<style>
-/* ROOT COLORS */
-:root {
-  --navy: #0b1736;
-  --red: #e53935;
-  --light-bg: #f5f7fb;
-  --text-main: #1e1e1e;
-  --text-light: #888;
-  --card-bg: #ffffff;
-  --border-soft: #dde2f0;
-}
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-/* RESET */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-}
-
-body {
-  background: var(--light-bg);
-  color: var(--text-main);
-}
-
-/* HEADER */
-header {
-  background: var(--navy);
-  color: #fff;
-  padding: 12px 32px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
-}
-
-.logo {
-  font-size: 1.3rem;
-  font-weight: 700;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
-
-nav a {
-  text-decoration: none;
-  color: #dbe2ff;
-  font-size: 0.98rem;
-  padding: 6px 12px;
-  border-radius: 999px;
-  transition: 0.2s;
-}
-
-nav a:hover {
-  background: rgba(255,255,255,0.08);
-}
-
-nav a.active {
-  background: var(--red);
-  color: white;
-}
-
-/* LAYOUT */
-main {
-  max-width: 1100px;
-  margin: 24px auto 40px;
-  padding: 0 16px;
-}
-
-section {
-  display: none;
-  animation: fadeIn 0.28s ease;
-}
-
-section.active {
-  display: block;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* HOME */
-.hero {
-  display: grid;
-  grid-template-columns: minmax(0,1.4fr) minmax(0,1fr);
-  gap: 24px;
-  align-items: center;
-}
-
-.hero-card {
-  background: linear-gradient(140deg, var(--navy), #1f325e);
-  color: #fff;
-  padding: 18px;
-  border-radius: 18px;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.25);
-  max-width: 320px;
-  cursor: pointer;
-  transition: 0.25s;
-}
-
-.hero-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
-}
-
-/* LEFT BANNER */
-.side-banner {
-  position: fixed;
-  left: 20px;
-  top: 300px;
-  width: 240px;
-  height: 120px;
-  background: linear-gradient(135deg, #0b1736, #1f325e);
-  border-radius: 18px;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-  animation: fadeLoop 4s ease-in-out infinite;
-  z-index: 900;
-}
-
-@keyframes fadeLoop {
-  0% { opacity: 0; }
-  20% { opacity: 1; }
-  70% { opacity: 1; }
-  100% { opacity: 0; }
-}
-
-/* INSTAGRAM */
-.instagram-section {
-  margin: 40px 0;
-  padding: 20px;
-  border-radius: 18px;
-  background: white;
-  border: 1px solid #dde2f0;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
-}
-
-.insta-grid {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 20px;
-}
-
-.insta-card {
-  border-radius: 14px;
-  overflow: hidden;
-}
-
-.instagram-media {
-  width: 100% !important;
-  min-width: 100% !important;
-}
-
-@media (max-width: 992px) {
-  .insta-grid { grid-template-columns: repeat(2,1fr); }
-}
-
-@media (max-width: 600px) {
-  .insta-grid { grid-template-columns: 1fr; }
-}
-
-/* ABOUT */
-.about-layout {
-  display: grid;
-  gap: 24px;
-  grid-template-columns: minmax(0,1.2fr) minmax(0,1fr);
-}
-
-.about-box {
-  background: #fff;
-  border-radius: 16px;
-  border: 1px solid var(--border-soft);
-  padding: 18px;
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 18px;
-  font-size: 0.8rem;
-  color: var(--text-light);
-}
-</style>
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<header>
-  <div class="logo">Ghaleb Abubaker</div>
-  <nav>
-    <ul>
-      <li><a class="nav-link active" data-section="home">Home</a></li>
-      <li><a class="nav-link" data-section="portfolio">Portfolio</a></li>
-      <li><a class="nav-link" data-section="about">About Me</a></li>
-      <li><a class="nav-link" data-section="contact">Contact Me</a></li>
-    </ul>
-  </nav>
-</header>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="overlay"></div>
+        <img src="assets/hero.jpg" class="hero-img" alt="Ghaleb Abubaker">
+        <div class="hero-content">
+            <h1>غالب أبو بكر</h1>
+            <p>Video Editor • Filmmaker • Content Creator</p>
+            <a href="#portfolio" class="cta-btn">شاهد أعمالي</a>
+        </div>
+    </section>
 
-<!-- FLOATING BANNER -->
-<div class="side-banner">I turn your ideas into a story</div>
+    <!-- ABOUT -->
+    <section class="about">
+        <h2>من أنا</h2>
+        <p>
+            صانع محتوى وممنتج فيديو متخصص في صناعة الفيديوهات الإعلانية والـSocial Media.
+            أعمل على إضافة هوية قوية لكل مشروع، مع لمسة سينمائية واضحة.
+        </p>
+    </section>
 
-<main>
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="portfolio">
+        <h2>الأعمال</h2>
+        <div class="grid">
+            <div class="item">مشروع 1</div>
+            <div class="item">مشروع 2</div>
+            <div class="item">مشروع 3</div>
+            <div class="item">مشروع 4</div>
+            <div class="item">مشروع 5</div>
+            <div class="item">مشروع 6</div>
+        </div>
+    </section>
 
-<!-- HOME -->
-<section id="home" class="active">
-  <div class="hero">
-    <div>
-      <h1>Hi, I’m Ghaleb Abubaker</h1>
-      <p>I create cinematic edits, social media content, and storytelling videos.</p>
-      <p>Scroll down or click Portfolio to watch my latest work.</p>
-    </div>
+    <!-- CLIENTS -->
+    <section class="clients">
+        <h2>العملاء</h2>
+        <div class="clients-logos">
+            <div class="logo">Logo 1</div>
+            <div class="logo">Logo 2</div>
+            <div class="logo">Logo 3</div>
+            <div class="logo">Logo 4</div>
+        </div>
+    </section>
 
-    <div class="hero-card contact-trigger">
-      <h2>Now Available for Projects</h2>
-      <p>Click here to Contact Me directly.</p>
-    </div>
-  </div>
-<!-- INSTAGRAM -->
-<div class="instagram-section">
-  <h3 class="insta-title">My work</h3>
+    <!-- SERVICES -->
+    <section class="services">
+        <h2>الخدمات</h2>
+        <div class="services-grid">
+            <div class="serv-box">
+                <h3>مونتاج فيديو</h3>
+                <p>صناعة فيديوهات احترافية بجودة عالية.</p>
+            </div>
+            <div class="serv-box">
+                <h3>تصوير</h3>
+                <p>جلسات تصوير سينمائية.</p>
+            </div>
+            <div class="serv-box">
+                <h3>إعلانات Social Media</h3>
+                <p>إعلانات قصيرة جذابة.</p>
+            </div>
+        </div>
+    </section>
 
-  <div class="insta-grid">
+    <!-- TESTIMONIALS -->
+    <section class="testimonials">
+        <h2>آراء العملاء</h2>
+        <div class="test-box">
+            <p>"شغل احترافي وسرعة في الإنجاز."</p>
+            <span>- عميل</span>
+        </div>
+        <div class="test-box">
+            <p>"يعرف يطلع أفضل نسخة من الفيديو."</p>
+            <span>- عميل آخر</span>
+        </div>
+    </section>
 
-    <div class="insta-card">
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DQzlWCVjkE3/" data-instgrm-version="14"></blockquote>
-    </div>
+    <!-- CONTACT -->
+    <section class="contact">
+        <h2>تواصل معي</h2>
+        <form>
+            <input type="text" placeholder="الاسم" required>
+            <input type="email" placeholder="البريد الإلكتروني" required>
+            <textarea placeholder="الرسالة" required></textarea>
+            <button type="submit">إرسال</button>
+        </form>
+    </section>
 
-    <div class="insta-card">
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DQ4JULaiBwS/" data-instgrm-version="14"></blockquote>
-    </div>
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2025 Ghaleb Abubaker</p>
+        <div class="social">
+            <a href="#">Instagram</a>
+            <a href="#">YouTube</a>
+            <a href="#">TikTok</a>
+        </div>
+    </footer>
 
-    <div class="insta-card">
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DNiwbsqRl9g/" data-instgrm-version="14"></blockquote>
-    </div>
-
-    <div class="insta-card">
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DN5VVgbif19/" data-instgrm-version="14"></blockquote>
-    </div>
-
-    <div class="insta-card">
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DMcxZd_MKLs/" data-instgrm-version="14"></blockquote>
-    </div>
-
-    <div class="insta-card">
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DOBuQgNAl-U/" data-instgrm-version="14"></blockquote>
-    </div>
-
-    <div class="insta-card">
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DL3KuJRoExt/" data-instgrm-version="14"></blockquote>
-    </div>
-
-    <div class="insta-card">
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DPtnpEvioqw/" data-instgrm-version="14"></blockquote>
-    </div>
-
-    <div class="insta-card">
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DQCLvrbincM/" data-instgrm-version="14"></blockquote>
-    </div>
-
-    <div class="insta-card">
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DQOgxU_Ci-r/" data-instgrm-version="14"></blockquote>
-    </div>
-
-    <div class="insta-card">
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DQrohS5iIIx/" data-instgrm-version="14"></blockquote>
-    </div>
-
-    <div class="insta-card">
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DQr77A9jEEH/" data-instgrm-version="14"></blockquote>
-    </div>
-
-    <div class="insta-card">
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DQr8_jnDNLx/" data-instgrm-version="14"></blockquote>
-    </div>
-
-    <div class="insta-card">
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DQr94MgDFQ3/" data-instgrm-version="14"></blockquote>
-    </div>
-
-    <div class="insta-card">
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DO3Nr4_DLhM/" data-instgrm-version="14"></blockquote>
-    </div>
-
-    <div class="insta-card">
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DNN2S31MRtn/" data-instgrm-version="14"></blockquote>
-    </div>
-
-    <div class="insta-card">
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DKR2t3fsvN2/" data-instgrm-version="14"></blockquote>
-    </div>
-
-    <div class="insta-card">
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DEiQc9pCGjJ/" data-instgrm-version="14"></blockquote>
-    </div>
-
-    <div class="insta-card">
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DQhJVQ6DDoo/" data-instgrm-version="14"></blockquote>
-    </div>
-
-    <div class="insta-card">
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DPgm3RdAlJc/" data-instgrm-version="14"></blockquote>
-    </div>
-
-    <div class="insta-card">
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DM-Riv_ow9B/" data-instgrm-version="14"></blockquote>
-    </div>
-
-  </div>
-</div>
-
-  <script async src="//www.instagram.com/embed.js"></script>
-</section>
-
-<!-- PORTFOLIO -->
-<section id="portfolio">
-  <h2 class="section-title">Portfolio</h2>
-  <p class="section-subtitle">Here are some of my latest videos.</p>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <h2 class="section-title">About Me</h2>
-  <div class="about-layout">
-    <div class="about-box">
-      <h3>Bio</h3>
-      <p>I’m a video editor…</p>
-    </div>
-
-    <div class="about-box">
-      <h3>Details</h3>
-      <p>Email: <strong>ghalebabuubaker4@gmail.com</strong></p>
-      <p>Instagram: <strong>@Ghalebb___</strong></p>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <h2 class="section-title">Contact Me</h2>
-  <div class="about-box">
-    <p>Email: <strong>ghalebabuubaker4@gmail.com</strong></p>
-    <p>Instagram: @Ghalebb___</p>
-  </div>
-</section>
-
-</main>
-
-<footer>
-  © <span id="year"></span> Ghaleb Abubaker – All Rights Reserved.
-</footer>
-
-<script>
-document.getElementById("year").textContent = new Date().getFullYear();
-
-const links = document.querySelectorAll(".nav-link");
-const sections = document.querySelectorAll("main section");
-
-links.forEach(link => {
-  link.addEventListener("click", () => {
-    links.forEach(a => a.classList.remove("active"));
-    link.classList.add("active");
-
-    const target = link.dataset.section;
-
-    sections.forEach(sec => {
-      sec.classList.remove("active");
-      if (sec.id === target) sec.classList.add("active");
-    });
-  });
-});
-
-document.querySelector(".contact-trigger")
-  .addEventListener("click", () => {
-    document.querySelector("[data-section='contact']").click();
-  });
-</script>
-
+    <script src="script.js"></script>
 </body>
 </html>

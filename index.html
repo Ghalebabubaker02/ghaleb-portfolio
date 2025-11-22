@@ -156,6 +156,16 @@
     }
 
     .<div class="hero-card contact-trigger"> {
+      /* Hover + clickable animation */
+.contact-trigger {
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.contact-trigger:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+}
       background: linear-gradient(140deg, var(--navy), #1f325e);
       color: #fff;
       padding: 18px 18px 14px;

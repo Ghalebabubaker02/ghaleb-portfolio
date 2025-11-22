@@ -1,205 +1,143 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ghaleb Abubaker – Portfolio</title>
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
-    <!-- CSS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghaleb Abubaker - Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- HERO -->
+    <!-- ================= HERO ================= -->
     <section class="hero">
-        <div class="overlay"></div>
+
+        <!-- خلفية Dark Blur -->
+        <div class="hero-bg"></div>
+
+        <!-- صورة الهيرو -->
         <img src="assets/470973794_3980330758880570_4051248477942518428_n.jpg" class="hero-img" alt="Ghaleb Abubaker">
+
+        <!-- محتوى الهيرو -->
         <div class="hero-content">
-            <h1>غالب أبو بكر</h1>
-            <p>Video Editor  • Content Creator</p>
-            <a href="#portfolio" class="cta-btn">شاهد أعمالي</a>
+            <h1 class="hero-name">Ghaleb Abubaker</h1>
+            <h2 class="hero-title">Video Editor & Filmmaker</h2>
+            <a href="#contact" class="hero-btn">Contact Me</a>
         </div>
     </section>
 
-    <!-- ABOUT -->
+
+    <!-- ================= PORTFOLIO / INSTAGRAM ================= -->
+    <section id="portfolio" class="instagram-section">
+        <h3 class="insta-title">My Work</h3>
+
+        <div class="insta-wrapper">
+            <div class="insta-gradient"></div>
+
+            <div class="insta-grid">
+
+                <!-- ===== أول 3 بوستات ظاهرين ===== -->
+                <div class="insta-card">
+                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DQzlWCVjkE3/" data-instgrm-version="14"></blockquote>
+                </div>
+
+                <div class="insta-card">
+                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DQ4JULaiBwS/" data-instgrm-version="14"></blockquote>
+                </div>
+
+                <div class="insta-card">
+                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DNiwbsqRl9g/" data-instgrm-version="14"></blockquote>
+                </div>
+
+                <!-- ===== باقي البوستات hidden ===== -->
+                <div class="insta-card hidden-posts" data-link="https://www.instagram.com/p/DN5VVgbif19/"><blockquote class="instagram-media"></blockquote></div>
+                <div class="insta-card hidden-posts" data-link="https://www.instagram.com/p/DMcxZd_MKLs/"><blockquote class="instagram-media"></blockquote></div>
+                <div class="insta-card hidden-posts" data-link="https://www.instagram.com/p/DOBuQgNAl-U/"><blockquote class="instagram-media"></blockquote></div>
+                <div class="insta-card hidden-posts" data-link="https://www.instagram.com/p/DL3KuJRoExt/"><blockquote class="instagram-media"></blockquote></div>
+
+                <div class="insta-card hidden-posts" data-link="https://www.instagram.com/reel/DPtnpEvioqw/"><blockquote class="instagram-media"></blockquote></div>
+                <div class="insta-card hidden-posts" data-link="https://www.instagram.com/reel/DQCLvrbincM/"><blockquote class="instagram-media"></blockquote></div>
+                <div class="insta-card hidden-posts" data-link="https://www.instagram.com/reel/DQOgxU_Ci-r/"><blockquote class="instagram-media"></blockquote></div>
+                <div class="insta-card hidden-posts" data-link="https://www.instagram.com/reel/DQrohS5iIIx/"><blockquote class="instagram-media"></blockquote></div>
+                <div class="insta-card hidden-posts" data-link="https://www.instagram.com/reel/DQr77A9jEEH/"><blockquote class="instagram-media"></blockquote></div>
+                <div class="insta-card hidden-posts" data-link="https://www.instagram.com/reel/DQr8_jnDNLx/"><blockquote class="instagram-media"></blockquote></div>
+                <div class="insta-card hidden-posts" data-link="https://www.instagram.com/reel/DQr94MgDFQ3/"><blockquote class="instagram-media"></blockquote></div>
+                <div class="insta-card hidden-posts" data-link="https://www.instagram.com/reel/DO3Nr4_DLhM/"><blockquote class="instagram-media"></blockquote></div>
+                <div class="insta-card hidden-posts" data-link="https://www.instagram.com/reel/DNN2S31MRtn/"><blockquote class="instagram-media"></blockquote></div>
+                <div class="insta-card hidden-posts" data-link="https://www.instagram.com/reel/DKR2t3fsvN2/"><blockquote class="instagram-media"></blockquote></div>
+                <div class="insta-card hidden-posts" data-link="https://www.instagram.com/reel/DEiQc9pCGjJ/"><blockquote class="instagram-media"></blockquote></div>
+                <div class="insta-card hidden-posts" data-link="https://www.instagram.com/reel/DQhJVQ6DDoo/"><blockquote class="instagram-media"></blockquote></div>
+                <div class="insta-card hidden-posts" data-link="https://www.instagram.com/reel/DPgm3RdAlJc/"><blockquote class="instagram-media"></blockquote></div>
+
+                <div class="insta-card hidden-posts" data-link="https://www.instagram.com/p/DM-Riv_ow9B/"><blockquote class="instagram-media"></blockquote></div>
+
+            </div>
+        </div>
+
+        <button id="showMoreBtn" class="show-more-btn">Show More</button>
+    </section>
+
+
+
+
+    <!-- ================= ABOUT ================= -->
     <section class="about">
-        <h2>من أنا</h2>
+        <h2>About Me</h2>
         <p>
-            صانع محتوى وممنتج فيديو متخصص في صناعة الفيديوهات الإعلانية والـSocial Media.
-            أعمل على إضافة هوية قوية لكل مشروع، مع لمسة سينمائية واضحة.
+            I am a Video Editor & Filmmaker based in Jordan.  
+            I create cinematic edits, commercials, reels, storytelling videos  
+            and full productions for brands & creators.
         </p>
     </section>
 
-<!-- PORTFOLIO -->
-<section id="portfolio">
-  <!-- INSTAGRAM -->
-<div class="instagram-section">
-  <h3 class="insta-title">My work</h3>
 
-  <!-- WRAPPER الذي يحتوي Hint + Show More -->
-  <div class="insta-wrapper">
 
-    <div class="insta-grid">
-
-      <!-- أول 3 بوستات — ظاهرين -->
-      <div class="insta-card">
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DQzlWCVjkE3/" data-instgrm-version="14"></blockquote>
-      </div>
-
-      <div class="insta-card">
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DQ4JULaiBwS/" data-instgrm-version="14"></blockquote>
-      </div>
-
-      <div class="insta-card">
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DNiwbsqRl9g/" data-instgrm-version="14"></blockquote>
-      </div>
-
-        
-      <!-- البوستات المخفية — ما فيها permalink -->
-      <!-- لازم data-link فقط -->
-      <div class="insta-card hidden-posts" data-link="https://www.instagram.com/p/DN5VVgbif19/">
-        <blockquote class="instagram-media" data-instgrm-version="14"></blockquote>
-      </div>
-
-      <div class="insta-card hidden-posts" data-link="https://www.instagram.com/p/DMcxZd_MKLs/">
-        <blockquote class="instagram-media" data-instgrm-version="14"></blockquote>
-      </div>
-
-      <div class="insta-card hidden-posts" data-link="https://www.instagram.com/p/DOBuQgNAl-U/">
-        <blockquote class="instagram-media" data-instgrm-version="14"></blockquote>
-      </div>
-
-      <div class="insta-card hidden-posts" data-link="https://www.instagram.com/p/DL3KuJRoExt/">
-        <blockquote class="instagram-media" data-instgrm-version="14"></blockquote>
-      </div>
-
-      <div class="insta-card hidden-posts" data-link="https://www.instagram.com/reel/DPtnpEvioqw/">
-        <blockquote class="instagram-media" data-instgrm-version="14"></blockquote>
-      </div>
-
-      <div class="insta-card hidden-posts" data-link="https://www.instagram.com/reel/DQCLvrbincM/">
-        <blockquote class="instagram-media" data-instgrm-version="14"></blockquote>
-      </div>
-
-      <div class="insta-card hidden-posts" data-link="https://www.instagram.com/reel/DQOgxU_Ci-r/">
-        <blockquote class="instagram-media" data-instgrm-version="14"></blockquote>
-      </div>
-
-      <div class="insta-card hidden-posts" data-link="https://www.instagram.com/reel/DQrohS5iIIx/">
-        <blockquote class="instagram-media" data-instgrm-version="14"></blockquote>
-      </div>
-
-      <div class="insta-card hidden-posts" data-link="https://www.instagram.com/reel/DQr77A9jEEH/">
-        <blockquote class="instagram-media" data-instgrm-version="14"></blockquote>
-      </div>
-
-      <div class="insta-card hidden-posts" data-link="https://www.instagram.com/reel/DQr8_jnDNLx/">
-        <blockquote class="instagram-media" data-instgrm-version="14"></blockquote>
-      </div>
-
-      <div class="insta-card hidden-posts" data-link="https://www.instagram.com/reel/DQr94MgDFQ3/">
-        <blockquote class="instagram-media" data-instgrm-version="14"></blockquote>
-      </div>
-
-      <div class="insta-card hidden-posts" data-link="https://www.instagram.com/reel/DO3Nr4_DLhM/">
-        <blockquote class="instagram-media" data-instgrm-version="14"></blockquote>
-      </div>
-
-      <div class="insta-card hidden-posts" data-link="https://www.instagram.com/reel/DNN2S31MRtn/">
-        <blockquote class="instagram-media" data-instgrm-version="14"></blockquote>
-      </div>
-
-      <div class="insta-card hidden-posts" data-link="https://www.instagram.com/reel/DKR2t3fsvN2/">
-        <blockquote class="instagram-media" data-instgrm-version="14"></blockquote>
-      </div>
-
-      <div class="insta-card hidden-posts" data-link="https://www.instagram.com/reel/DEiQc9pCGjJ/">
-        <blockquote class="instagram-media" data-instgrm-version="14"></blockquote>
-      </div>
-
-      <div class="insta-card hidden-posts" data-link="https://www.instagram.com/reel/DQhJVQ6DDoo/">
-        <blockquote class="instagram-media" data-instgrm-version="14"></blockquote>
-      </div>
-
-      <div class="insta-card hidden-posts" data-link="https://www.instagram.com/reel/DPgm3RdAlJc/">
-        <blockquote class="instagram-media" data-instgrm-version="14"></blockquote>
-      </div>
-
-      <div class="insta-card hidden-posts" data-link="https://www.instagram.com/p/DM-Riv_ow9B/">
-        <blockquote class="instagram-media" data-instgrm-version="14"></blockquote>
-      </div>
-
-    </div>
-
-    <!-- الغريدنت -->
-    <div class="insta-gradient"></div>
-
-  </div>
-
-  <!-- زر Show More -->
-  <button id="showMoreBtn" class="show-more-btn">Show More</button>
-
-</div>
-
-<script async src="//www.instagram.com/embed.js"></script>
-
-    <!-- SERVICES -->
+    <!-- ================= SERVICES ================= -->
     <section class="services">
-        <h2>الخدمات</h2>
+        <h2>Services</h2>
+
         <div class="services-grid">
-            <div class="serv-box">
-                <h3>مونتاج فيديو</h3>
-                <p>صناعة فيديوهات احترافية بجودة عالية.</p>
+
+            <div class="service-card">
+                <h3>Video Editing</h3>
+                <p>Reels, ads, cinematic edits, podcasts & more.</p>
             </div>
-            <div class="serv-box">
-                <h3>مؤثرات صوتية</h3>
-                <p>أقوم بصنع مؤثرات صوتية تناسب المقطع بطريقة إحترافية</p>
+
+            <div class="service-card">
+                <h3>Filmmaking</h3>
+                <p>Shooting, directing & creative storytelling.</p>
             </div>
-            <div class="serv-box">
-                <h3>إعلانات Social Media</h3>
-                <p>إعلانات قصيرة جذابة.</p>
+
+            <div class="service-card">
+                <h3>Brand Content</h3>
+                <p>Full content production for brands & creators.</p>
             </div>
+
         </div>
     </section>
 
-    <!-- TESTIMONIALS -->
-    <section class="testimonials">
-        <h2>آراء العملاء</h2>
-        <div class="test-box">
-            <p>"شغل احترافي وسرعة في الإنجاز."</p>
-            <span>- عميل</span>
-        </div>
-        <div class="test-box">
-            <p>"يعرف يطلع أفضل نسخة من الفيديو."</p>
-            <span>- عميل آخر</span>
-        </div>
+
+
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+
+        <p>Instagram: <a href="https://www.instagram.com/ghalebb___" target="_blank">@ghalebb___</a></p>
+        <p>Email: ghaleb@example.com</p>
     </section>
 
-    <!-- CONTACT -->
-    <section class="contact">
-        <h2>تواصل معي</h2>
-        <form>
-            <input type="text" placeholder="الاسم" required>
-            <input type="email" placeholder="البريد الإلكتروني" required>
-            <textarea placeholder="الرسالة" required></textarea>
-            <button type="submit">إرسال</button>
-        </form>
-    </section>
 
-    <!-- FOOTER -->
+
+    <!-- ================= FOOTER ================= -->
     <footer>
-        <p>© 2025 Ghaleb Abubaker</p>
-        <div class="social">
-            <a href="#">Instagram</a>
-            <a href="#">YouTube</a>
-            <a href="#">TikTok</a>
-        </div>
+        <p>© 2025 Ghaleb Abubaker | All Rights Reserved</p>
     </footer>
 
+
+    <!-- Scripts -->
     <script src="script.js"></script>
+    <script async src="//www.instagram.com/embed.js"></script>
+
 </body>
 </html>

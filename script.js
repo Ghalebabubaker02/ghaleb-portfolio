@@ -6,4 +6,14 @@ document.addEventListener("scroll", () => {
             section.style.transform = "translateY(0)";
         }
     });
+
+});
+const showMoreBtn = document.getElementById("showMoreBtn");
+const instaWrapper = document.querySelector(".insta-wrapper");
+const instaGradient = document.querySelector(".insta-gradient");
+
+showMoreBtn.addEventListener("click", () => {
+    instaWrapper.style.maxHeight = "5000px";
+    instaGradient.style.opacity = "0";
+    showMoreBtn.style.display = "none";
 });

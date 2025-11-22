@@ -181,21 +181,24 @@ footer {
 }
 .insta-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 25px;
-    margin-top: 40px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+    justify-items: center;
 }
 
 .insta-card {
+    width: 320px; /* عرض ثابت للإنستغرام */
     background: #111;
     padding: 10px;
     border: 1px solid #222;
     border-radius: 10px;
+    overflow: hidden;
 }
 
-.insta-title {
-    color: var(--red);
-    margin-top: 60px;
-    margin-bottom: 30px;
-    font-size: 2rem;
+/* Instagram embed fix */
+.instagram-media {
+    min-width: 320px !important;
+    max-width: 320px !important;
+    width: 320px !important;
+    margin: 0 auto !important;
 }

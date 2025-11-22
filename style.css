@@ -1,271 +1,189 @@
-@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Inter:wght@300;400;600&display=swap');
+/* ================================
+   AGGRESSIVE CINEMATIC STYLE
+   BY GHALEB ABUBAKER — FINAL
+================================ */
 
-:root {
-    --bg: #0b0b0b;
-    --text: #f2f2f2;
-    --red: #e53935;
-    --grey: #999;
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Poppins",sans-serif;
 }
 
-body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Tajawal', sans-serif;
+body{
+  background:#000;
+  color:#fff;
+  overflow-x:hidden;
 }
 
-/* HERO */
-.hero {
-    position: relative;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+/* ======================================
+   HERO (NO IMAGE) — AGGRESSIVE CINEMATIC
+====================================== */
+.hero{
+  position:relative;
+  height:100vh;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#070707;
+  overflow:hidden;
 }
 
-.hero-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.4) saturate(1.2);
+/* Particles */
+#particles-js{
+  position:absolute;
+  inset:0;
+  z-index:1;
 }
 
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(rgba(229,57,53,0.15), rgba(0,0,0,0.85));
+/* Red cinematic glow */
+.hero::before{
+  content:"";
+  position:absolute;
+  width:140%;
+  height:140%;
+  background:radial-gradient(circle at 50% 20%, #ff00004d, transparent 70%);
+  filter:blur(80px);
+  z-index:0;
 }
 
-.hero-content {
-    position: absolute;
-    text-align: center;
+.overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.75);
+  z-index:2;
 }
 
-.hero h1 {
-    font-size: 4rem;
-    margin-bottom: 10px;
-    color: var(--red);
+.hero-content{
+  position:relative;
+  z-index:5;
+  text-align:center;
+  animation:fadeUp 1.2s ease-out forwards;
+  opacity:0;
+  transform:translateY(40px);
 }
 
-.hero p {
-    font-size: 1.3rem;
+.hero-content h1{
+  font-size:3.4rem;
+  margin-bottom:10px;
+  font-weight:700;
 }
 
-.cta-btn {
-    margin-top: 20px;
-    display: inline-block;
-    padding: 12px 30px;
-    background: var(--red);
-    color: #fff;
-    border-radius: 5px;
-    font-weight: bold;
-    text-decoration: none;
+.hero-content p{
+  font-size:1.3rem;
+  opacity:0.9;
+  margin-bottom:25px;
 }
 
-/* SECTIONS */
-section {
-    padding: 80px 10%;
-    text-align: center;
+.cta-btn{
+  display:inline-block;
+  padding:12px 32px;
+  font-size:1rem;
+  background:#ff1e1e;
+  color:#fff;
+  border-radius:6px;
+  text-decoration:none;
+  transition:0.3s;
 }
 
-/* ABOUT */
-.about p {
-    max-width: 700px;
-    margin: auto;
-    color: var(--grey);
+.cta-btn:hover{
+  background:#ff3d3d;
+  transform:translateY(-4px);
 }
 
-/* PORTFOLIO */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+/* ======================================
+   INSTAGRAM GRID
+====================================== */
+.instagram-section{
+  padding:70px 20px;
 }
 
-.item {
-    background: #1a1a1a;
-    padding: 60px 0;
-    border: 1px solid #222;
+.insta-title{
+  text-align:center;
+  font-size:1.8rem;
+  margin-bottom:30px;
+  font-weight:600;
 }
 
-/* CLIENTS */
-.clients-logos {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
+.insta-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
 }
 
-.logo {
-    border: 1px solid #222;
-    padding: 20px 40px;
+.insta-card{
+  background:#111;
+  padding:12px;
+  border-radius:10px;
+  overflow:hidden;
+  border:1px solid #222;
+  transition:0.3s;
 }
 
-/* SERVICES */
-.services-grid {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
+.insta-card:hover{
+  transform:scale(1.03);
+  border-color:#ff1e1e;
 }
 
-.serv-box {
-    background: #1a1a1a;
-    padding: 30px;
-    width: 300px;
-    border: 1px solid #222;
+/* ======================================
+   SERVICES — AGGRESSIVE ANIMATIONS
+====================================== */
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+  margin-top:40px;
 }
 
-/* TESTIMONIALS */
-.test-box {
-    background: #1a1a1a;
-    padding: 30px;
-    margin: 20px auto;
-    max-width: 600px;
-    border: 1px solid #222;
-    color: var(--grey);
+.service-box{
+  background:#111;
+  padding:30px;
+  border-radius:12px;
+  border:1px solid #222;
+  opacity:0;
+  transform:translateY(40px) scale(0.95);
+  transition:0.8s ease-out;
 }
 
-/* CONTACT */
-form {
-    max-width: 600px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+.service-box.show{
+  opacity:1;
+  transform:translateY(0) scale(1);
 }
 
-input, textarea {
-    padding: 12px;
-    background: #111;
-    border: 1px solid #333;
-    color: #fff;
+.service-box h3{
+  font-size:1.4rem;
+  margin-bottom:10px;
+  color:#ff3b3b;
 }
 
-button {
-    padding: 12px;
-    background: var(--red);
-    color: #fff;
-    border: none;
+/* ======================================
+   CONTACT + FOOTER
+====================================== */
+footer{
+  text-align:center;
+  padding:40px 0;
+  background:#060606;
+  margin-top:60px;
+  border-top:1px solid #111;
 }
 
-/* FOOTER */
-footer {
-    padding: 40px;
-    text-align: center;
-    border-top: 1px solid #222;
+/* ======================================
+   ANIMATIONS
+====================================== */
+@keyframes fadeUp{
+  0%{opacity:0; transform:translateY(40px);}
+  100%{opacity:1; transform:translateY(0);}
 }
 
-.social a {
-    margin: 0 10px;
-    color: var(--red);
-    text-decoration: none;
+/* ======================================
+   RESPONSIVE ULTRA PRO
+====================================== */
+@media(max-width:500px){
+  .hero-content h1{ font-size:2.2rem; }
+  .hero-content p{ font-size:1rem; }
+  .cta-btn{ padding:10px 20px; font-size:0.9rem; }
+  .insta-grid{ grid-template-columns:1fr; }
+  .services-grid{ grid-template-columns:1fr; }
 }
-
-/* MOBILE */
-@media (max-width: 768px) {
-    .grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .services-grid {
-        flex-direction: column;
-    }
-
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-}
-.insta-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 20px;
-    justify-items: center;
-}
-
-.insta-card {
-    width: 320px; /* عرض ثابت للإنستغرام */
-    background: #111;
-    padding: 10px;
-    border: 1px solid #222;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-/* Instagram embed fix */
-.instagram-media {
-    min-width: 320px !important;
-    max-width: 320px !important;
-    width: 320px !important;
-    margin: 0 auto !important;
-}
-/* Wrapper: يظهر أول 3 + Hint من الباقي */
-.insta-wrapper {
-    position: relative;
-    overflow: hidden;
-    max-height: 480px;   /* أهم سطر */
-    transition: max-height 0.7s ease;
-}
-/* Gradient Hint */
-.insta-gradient {
-    position: absolute;
-    bottom: 40px;   /* كان 70px — كبير كثير */
-    left: 0;
-    width: 100%;
-    height: 220px;
-    background: linear-gradient(to bottom, rgba(11,11,11,0), rgba(11,11,11,1));
-    pointer-events: none;
-    transition: opacity 0.6s ease;
-    z-index: 10;
-}
-/* Grid الأساسي */
-.insta-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 25px;
-}
-
-/* حجم البوستات */
-.insta-card {
-    width: 320px;
-}
-
-/* إنستغرام iframe fix */
-.instagram-media {
-    min-width: 320px !important;
-    max-width: 320px !important;
-    width: 320px !important;
-}
-
-/* زر Show More */
-.show-more-btn {
-    margin: 20px auto 0;
-    display: block;
-    padding: 12px 30px;
-    background: var(--red);
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: bold;
-    position: relative;
-    z-index: 20;
-}
-// اظهار أول 3 بوستات بعد تحميل الصفحة
-  if (i < 3) {
-      card.classList.add("visible");
-    }, i * 150); // تأخير بسيط بين كل بوست
-  }
-});
-
-
-// عند الضغط على Show More → نكشف الباقي مع Animation Sequence
-
-      card.classList.add("reveal-seq");
-    }, i * 120);
-  });
-});

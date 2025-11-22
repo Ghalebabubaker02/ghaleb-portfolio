@@ -256,9 +256,7 @@ footer {
     z-index: 20;
 }
 // اظهار أول 3 بوستات بعد تحميل الصفحة
-document.querySelectorAll(".insta-card").forEach((card, i) => {
   if (i < 3) {
-    setTimeout(() => {
       card.classList.add("visible");
     }, i * 150); // تأخير بسيط بين كل بوست
   }
@@ -266,11 +264,7 @@ document.querySelectorAll(".insta-card").forEach((card, i) => {
 
 
 // عند الضغط على Show More → نكشف الباقي مع Animation Sequence
-showMoreBtn.addEventListener("click", () => {
-  const hiddenCards = document.querySelectorAll(".insta-card");
 
-  hiddenCards.forEach((card, i) => {
-    setTimeout(() => {
       card.classList.add("reveal-seq");
     }, i * 120);
   });

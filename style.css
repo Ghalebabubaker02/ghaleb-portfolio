@@ -15,3 +15,192 @@ body{margin:0;background:#000;color:#fff;font-family:Montserrat, sans-serif;over
 #contactForm{display:flex;flex-direction:column;gap:15px;max-width:450px;margin:auto;}
 input,textarea{padding:12px;border:none;border-radius:5px;}
 button{padding:12px;background:#ff1d1d;color:#fff;border:none;border-radius:6px;cursor:pointer;}
+/* ================================
+   AGGRESSIVE CINEMATIC STYLE
+   BY GHALEB ABUBAKER — FINAL
+================================ */
+
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Poppins",sans-serif;
+}
+
+body{
+  background:#000;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* ======================================
+   HERO (NO IMAGE) — AGGRESSIVE CINEMATIC
+====================================== */
+.hero{
+  position:relative;
+  height:100vh;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#070707;
+  overflow:hidden;
+}
+
+/* Particles */
+#particles-js{
+  position:absolute;
+  inset:0;
+  z-index:1;
+}
+
+/* Red cinematic glow */
+.hero::before{
+  content:"";
+  position:absolute;
+  width:140%;
+  height:140%;
+  background:radial-gradient(circle at 50% 20%, #ff00004d, transparent 70%);
+  filter:blur(80px);
+  z-index:0;
+}
+
+.overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.75);
+  z-index:2;
+}
+
+.hero-content{
+  position:relative;
+  z-index:5;
+  text-align:center;
+  animation:fadeUp 1.2s ease-out forwards;
+  opacity:0;
+  transform:translateY(40px);
+}
+
+.hero-content h1{
+  font-size:3.4rem;
+  margin-bottom:10px;
+  font-weight:700;
+}
+
+.hero-content p{
+  font-size:1.3rem;
+  opacity:0.9;
+  margin-bottom:25px;
+}
+
+.cta-btn{
+  display:inline-block;
+  padding:12px 32px;
+  font-size:1rem;
+  background:#ff1e1e;
+  color:#fff;
+  border-radius:6px;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.cta-btn:hover{
+  background:#ff3d3d;
+  transform:translateY(-4px);
+}
+
+/* ======================================
+   INSTAGRAM GRID
+====================================== */
+.instagram-section{
+  padding:70px 20px;
+}
+
+.insta-title{
+  text-align:center;
+  font-size:1.8rem;
+  margin-bottom:30px;
+  font-weight:600;
+}
+
+.insta-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
+
+.insta-card{
+  background:#111;
+  padding:12px;
+  border-radius:10px;
+  overflow:hidden;
+  border:1px solid #222;
+  transition:0.3s;
+}
+
+.insta-card:hover{
+  transform:scale(1.03);
+  border-color:#ff1e1e;
+}
+
+/* ======================================
+   SERVICES — AGGRESSIVE ANIMATIONS
+====================================== */
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+  margin-top:40px;
+}
+
+.service-box{
+  background:#111;
+  padding:30px;
+  border-radius:12px;
+  border:1px solid #222;
+  opacity:0;
+  transform:translateY(40px) scale(0.95);
+  transition:0.8s ease-out;
+}
+
+.service-box.show{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
+
+.service-box h3{
+  font-size:1.4rem;
+  margin-bottom:10px;
+  color:#ff3b3b;
+}
+
+/* ======================================
+   CONTACT + FOOTER
+====================================== */
+footer{
+  text-align:center;
+  padding:40px 0;
+  background:#060606;
+  margin-top:60px;
+  border-top:1px solid #111;
+}
+
+/* ======================================
+   ANIMATIONS
+====================================== */
+@keyframes fadeUp{
+  0%{opacity:0; transform:translateY(40px);}
+  100%{opacity:1; transform:translateY(0);}
+}
+
+/* ======================================
+   RESPONSIVE ULTRA PRO
+====================================== */
+@media(max-width:500px){
+  .hero-content h1{ font-size:2.2rem; }
+  .hero-content p{ font-size:1rem; }
+  .cta-btn{ padding:10px 20px; font-size:0.9rem; }
+  .insta-grid{ grid-template-columns:1fr; }
+  .services-grid{ grid-template-columns:1fr; }
+}

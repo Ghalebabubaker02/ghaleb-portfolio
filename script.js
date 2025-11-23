@@ -1,55 +1,118 @@
-/* Loader */
-let loader=document.getElementById("loader");
-let loaderText=document.getElementById("loader-text");
-let load=0;
-let int=setInterval(()=>{load++;loaderText.textContent=`Loading ${load}%`;
-if(load>=100){clearInterval(int);loader.style.opacity="0";setTimeout(()=>loader.style.display="none",900);}},15);
-
-/* Cursor Trail */
-const cursorTrail=document.getElementById("cursor-trail");
-document.addEventListener("mousemove",e=>{cursorTrail.style.left=e.pageX+"px";cursorTrail.style.top=e.pageY+"px";});
-
-/* Lens Flare */
-const flare=document.getElementById("lens-flare");
-document.addEventListener("mousemove",e=>{flare.style.left=e.pageX+"px";flare.style.top=e.pageY+"px";});
-
-/* Scroll Reveal */
-const reveals=document.querySelectorAll(".reveal");
-const obs=new IntersectionObserver(entries=>{
-entries.forEach(ent=>{if(ent.isIntersecting){ent.target.classList.add("show");}});});
-reveals.forEach(r=>obs.observe(r));
-
-/* Story Viewer System */
-const stories={editing:["videos/edit1.mp4"],clients:["videos/client1.mp4"],gear:["videos/gear1.mp4"]};
-let current=null,index=0;
-const viewer=document.getElementById("story-viewer");
-const video=document.getElementById("story-video");
-const progress=document.querySelector(".story-progress");
-
-document.querySelectorAll(".highlight-item").forEach(el=>{
-el.addEventListener("click",()=>{
-current=el.dataset.story;
-index=0;
-openStory();
-});
+/* =========================================
+   Smooth Scroll for Hero Button
+========================================= */
+document.querySelector(".scroll-btn").addEventListener("click", (e) => {
+    e.preventDefault();
+    document.querySelector("#portfolio").scrollIntoView({ behavior: "smooth" });
 });
 
-function openStory(){viewer.style.display="flex";play();}
-function play(){
-video.src=stories[current][index];
-video.play();
-progress.style.transitionDuration="5s";
-progress.style.width="100%";
-video.onended=()=>next();
+/* =========================================
+   Services Animation on Scroll
+========================================= */
+const serviceBoxes = document.querySelectorAll(".service-box");
+
+const observer = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+        });
+    },
+    { threshold: 0.2 }
+);
+
+serviceBoxes.forEach((box) => observer.observe(box));
+
+/* =========================================
+   ParticlesJS Loader
+========================================= */
+document.addEventListener("DOMContentLoaded", function () {
+    const particles = document.createElement("script");
+    particles.src = "https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js";
+
+    particles.onload = function () {
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 90 },
+                color: { value: "#ff1e1e" },
+                shape: { type: "circle" },
+                opacity: { value: 0.4 },
+                size: { value: 3 },
+                move: { speed: 2 },
+            },
+            interactivity: {
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                },
+            },
+            retina_detect: true,
+        });
+    };
+
+    document.body.appendChild(particles);
+});
+
+/* =========================================
+   Story Viewer System (Instagram-style)
+========================================= */
+const stories = {
+    editing: ["videos/edit1.mp4", "videos/edit2.mp4"],
+    clients: ["videos/client1.mp4", "videos/client2.mp4"],
+    gear: ["videos/gear1.mp4"],
+    bts: ["videos/bts1.mp4"],
+};
+
+let currentStory = null;
+let currentIndex = 0;
+
+const storyViewer = document.getElementById("story-viewer");
+const storyVideo = document.getElementById("story-video");
+const storyProgress = document.querySelector(".story-progress");
+
+/* Open highlight */
+document.querySelectorAll(".highlight-item").forEach((item) => {
+    item.addEventListener("click", () => {
+        currentStory = item.dataset.story;
+        currentIndex = 0;
+        openStory();
+    });
+});
+
+/* Open story player */
+function openStory() {
+    storyViewer.style.display = "flex";
+    playStory();
 }
-function next(){
-index++;
-if(index>=stories[current].length){close();return;}
-progress.style.width="0";setTimeout(play,100);
+
+/* Load & play story */
+function playStory() {
+    const src = stories[currentStory][currentIndex];
+    storyVideo.src = src;
+    storyVideo.play();
+
+    storyProgress.style.transitionDuration = "5s";
+    storyProgress.style.width = "100%";
+
+    storyVideo.onended = () => nextStory();
 }
-document.querySelector(".close-story").onclick=close;
-function close(){
-viewer.style.display="none";
-video.pause();
-progress.style.width="0";
+
+/* Next video */
+function nextStory() {
+    currentIndex++;
+    if (currentIndex >= stories[currentStory].length) {
+        closeStory();
+        return;
+    }
+    storyProgress.style.width = "0%";
+    setTimeout(playStory, 100);
+}
+
+/* Close story */
+document.querySelector(".close-story").addEventListener("click", closeStory);
+
+function closeStory() {
+    storyViewer.style.display = "none";
+    storyVideo.pause();
+    storyProgress.style.width = "0%";
 }

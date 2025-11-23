@@ -1,134 +1,127 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ghaleb Abubaker - Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<title>Ghaleb Abubaker - Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <!-- HERO -->
-    <section class="hero">
-        <div id="particles-js"></div>
-        <div class="overlay"></div>
+<div id="loader">
+  <div class="loader-circle"></div>
+  <p id="loader-text">Loading 0%</p>
+</div>
 
-        <div class="hero-content">
-            <h1>Ghaleb Abubaker</h1>
-            <p>Video Editor • Content Creator</p>
-            <a href="#portfolio" class="cta-btn scroll-btn">View My Work</a>
-        </div>
-    </section>
-     <!-- HIGHLIGHTS -->
-    <div class="highlights-container">
+<div id="lens-flare"></div>
+<div id="cursor-trail"></div>
 
-        <div class="highlight-item" data-story="editing">
-            <div class="highlight-circle"></div>
-            <p>Editing</p>
-        </div>
+<header class="hero">
+  <div id="particles-js"></div>
+  <div class="overlay"></div>
+  <div class="hero-content reveal">
+    <h1>Ghaleb Abubaker</h1>
+    <p>Video Editor • Content Creator</p>
+    <a href="#portfolio" class="scroll-btn cta-btn">View My Work</a>
+  </div>
+</header>
 
-        <div class="highlight-item" data-story="clients">
-            <div class="highlight-circle"></div>
-            <p>Clients</p>
-        </div>
+<section class="highlights-container reveal">
+  <div class="highlight-item" data-story="editing">
+    <div class="highlight-circle"></div>
+    <p>Editing</p>
+  </div>
+  <div class="highlight-item" data-story="clients">
+    <div class="highlight-circle"></div>
+    <p>Clients</p>
+  </div>
+  <div class="highlight-item" data-story="gear">
+    <div class="highlight-circle"></div>
+    <p>Gear</p>
+  </div>
+</section>
 
-        <div class="highlight-item" data-story="gear">
-            <div class="highlight-circle"></div>
-            <p>Gear</p>
-        </div>
+<div class="story-viewer" id="story-viewer">
+  <div class="story-content">
+    <div class="close-story">&times;</div>
+    <div class="story-progress"></div>
+    <video id="story-video" autoplay></video>
+  </div>
+</div>
 
-        <div class="highlight-item" data-story="bts">
-            <div class="highlight-circle"></div>
-            <p>BTS</p>
-        </div>
+<section id="portfolio" class="instagram-section reveal">
+  <h2 class="section-title">Portfolio</h2>
+  <p class="insta-title">My Work (Instagram)</p>
 
-    </div>
+  
+<div class="insta-grid">
 
-    <!-- STORY VIEWER -->
-    <div id="story-viewer" class="story-viewer">
-        <div class="story-content">
-            <video id="story-video" playsinline></video>
-            <span class="close-story">×</span>
-            <div class="story-progress"></div>
-        </div>
-    </div>
-    <!-- SERVICES -->
-    <section id="services">
-        <h2 class="section-title">Services</h2>
+    <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DQzlWCVjkE3/" data-instgrm-version="14"></blockquote></div>
 
-        <div class="services-grid">
+    <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DQ4JULaiBwS/" data-instgrm-version="14"></blockquote></div>
 
-            <div class="service-box">
-                <h3>Video Editing</h3>
-                <p>Creating high-quality cinematic edits.</p>
-            </div>
+    <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DNiwbsqRl9g/" data-instgrm-version="14"></blockquote></div>
 
-            <div class="service-box">
-                <h3>Sound Design</h3>
-                <p>Professional sound effects crafted for your content.</p>
-            </div>
+    <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DN5VVgbif19/" data-instgrm-version="14"></blockquote></div>
 
-            <div class="service-box">
-                <h3>Social Media Ads</h3>
-                <p>Engaging short-form ads optimized for platforms.</p>
-            </div>
+    <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DMcxZd_MKLs/" data-instgrm-version="14"></blockquote></div>
 
-        </div>
-    </section>
-    
-    <!-- INSTAGRAM PORTFOLIO -->
-    <section id="portfolio" class="instagram-section">
-        <h2 class="section-title">Portfolio</h2>
-        <h3 class="insta-title">My Work (Instagram)</h3>
+    <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DOBuQgNAl-U/" data-instgrm-version="14"></blockquote></div>
 
-        <div class="insta-grid">
+    <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DL3KuJRoExt/" data-instgrm-version="14"></blockquote></div>
 
-            <!-- ALL INSTAGRAM LINKS YOU ADDED (UNCHANGED) -->
-            <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DQzlWCVjkE3/" data-instgrm-version="14"></blockquote></div>
-            <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DQ4JULaiBwS/" data-instgrm-version="14"></blockquote></div>
-            <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DNiwbsqRl9g/" data-instgrm-version="14"></blockquote></div>
-            <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DN5VVgbif19/" data-instgrm-version="14"></blockquote></div>
+    <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DPtnpEvioqw/" data-instgrm-version="14"></blockquote></div>
 
-            <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DMcxZd_MKLs/" data-instgrm-version="14"></blockquote></div>
-            <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DOBuQgNAl-U/" data-instgrm-version="14"></blockquote></div>
-            <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DL3KuJRoExt/" data-instgrm-version="14"></blockquote></div>
+    <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DQCLvrbincM/" data-instgrm-version="14"></blockquote></div>
 
-            <!-- REELS -->
-            <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DPtnpEvioqw/" data-instgrm-version="14"></blockquote></div>
-            <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DQCLvrbincM/" data-instgrm-version="14"></blockquote></div>
+    <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DQOgxU_Ci-r/" data-instgrm-version="14"></blockquote></div>
 
-            <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DQOgxU_Ci-r/" data-instgrm-version="14"></blockquote></div>
-            <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DQrohS5iIIx/" data-instgrm-version="14"></blockquote></div>
+    <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DQrohS5iIIx/" data-instgrm-version="14"></blockquote></div>
 
-            <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DQr77A9jEEH/" data-instgrm-version="14"></blockquote></div>
-            <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DQr8_jnDNLx/" data-instgrm-version="14"></blockquote></div>
+    <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DQr77A9jEEH/" data-instgrm-version="14"></blockquote></div>
 
-            <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DQr94MgDFQ3/" data-instgrm-version="14"></blockquote></div>
-            <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DO3Nr4_DLhM/" data-instgrm-version="14"></blockquote></div>
+    <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DQr8_jnDNLx/" data-instgrm-version="14"></blockquote></div>
 
-            <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DNN2S31MRtn/" data-instgrm-version="14"></blockquote></div>
-            <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DKR2t3fsvN2/" data-instgrm-version="14"></blockquote></div>
+    <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DQr94MgDFQ3/" data-instgrm-version="14"></blockquote></div>
 
-            <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DEiQc9pCGjJ/" data-instgrm-version="14"></blockquote></div>
-            <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DQhJVQ6DDoo/" data-instgrm-version="14"></blockquote></div>
+    <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DO3Nr4_DLhM/" data-instgrm-version="14"></blockquote></div>
 
-            <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DPgm3RdAlJc/" data-instgrm-version="14"></blockquote></div>
-            <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DM-Riv_ow9B/" data-instgrm-version="14"></blockquote></div>
+    <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DNN2S31MRtn/" data-instgrm-version="14"></blockquote></div>
 
-        </div>
-    </section>
+    <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DKR2t3fsvN2/" data-instgrm-version="14"></blockquote></div>
 
-    <!-- FOOTER -->
-    <footer>
-        <p>© 2025 Ghaleb Abubaker — All Rights Reserved</p>
-    </footer>
+    <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DEiQc9pCGjJ/" data-instgrm-version="14"></blockquote></div>
 
-    <!-- INSTAGRAM SCRIPT -->
-    <script async src="//www.instagram.com/embed.js"></script>
+    <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DQhJVQ6DDoo/" data-instgrm-version="14"></blockquote></div>
 
-    <!-- JS -->
-    <script src="script.js"></script>
+    <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DPgm3RdAlJc/" data-instgrm-version="14"></blockquote></div>
 
+    <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DM-Riv_ow9B/" data-instgrm-version="14"></blockquote></div>
+
+</div>
+
+    <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DQ4JULaiBwS/" data-instgrm-version="14"></blockquote></div>
+    <div class="insta-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DNiwbsqRl9g/" data-instgrm-version="14"></blockquote></div>
+  </div>
+
+  <script async defer src="//www.instagram.com/embed.js"></script>
+</section>
+
+<section id="services" class="reveal">
+  <h2 class="section-title">Services</h2>
+  <div class="services-grid">
+    <div class="service-box"><h3>Video Editing</h3><p>Cinematic editing for social media & brands.</p></div>
+    <div class="service-box"><h3>Color Grading</h3><p>Stylish visual tone with cinematic identity.</p></div>
+    <div class="service-box"><h3>Social Media Ads</h3><p>High-impact short-form ads.</p></div>
+  </div>
+</section>
+
+<footer>
+  © 2025 Ghaleb Abubaker — All Rights Reserved
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>

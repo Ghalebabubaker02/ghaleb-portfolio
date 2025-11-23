@@ -1,155 +1,219 @@
-// Loader
-let loader=document.getElementById("loader");
-let loaderText=document.getElementById("loader-text");
-let load=0;
-let int=setInterval(()=>{
- load++;
- loaderText.textContent=`Loading ${load}%`;
- if(load>=100){
-  clearInterval(int);
-  loader.style.opacity="0";
-  setTimeout(()=>loader.style.display="none",900);
- }
-},20);
+body{margin:0;background:#000;color:#fff;font-family:Montserrat, sans-serif;overflow-x:hidden;}
+#loader{position:fixed;inset:0;background:#000;display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:99999;transition:opacity 1s;}
+.loader-circle{width:60px;height:60px;border:4px solid #ff2b2b;border-top-color:transparent;border-radius:50%;animation:spin 1s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}} 
+#lens-flare{position:fixed;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(255,50,50,0.35),transparent);filter:blur(80px);pointer-events:none;mix-blend-mode:screen;z-index:2;}
+#cursor-trail{position:fixed;width:10px;height:10px;background:#ff2b2b;border-radius:50%;filter:blur(6px);pointer-events:none;z-index:9999;}
+.hero{height:100vh;display:flex;justify-content:center;align-items:center;text-align:center;position:relative;}
+.overlay{position:absolute;inset:0;background:rgba(0,0,0,0.75);}
+.hero-content{z-index:10;}
+.cta-btn{padding:12px 30px;background:#ff1d1d;color:#fff;border-radius:7px;text-decoration:none;display:inline-block;margin-top:20px;}
+.section-title{text-align:center;font-size:2rem;margin-bottom:20px;}
+.insta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;padding:20px;}
+.insta-card{background:#111;padding:12px;border-radius:12px;}
+#contact{padding:60px 20px;}
+#contactForm{display:flex;flex-direction:column;gap:15px;max-width:450px;margin:auto;}
+input,textarea{padding:12px;border:none;border-radius:5px;}
+button{padding:12px;background:#ff1d1d;color:#fff;border:none;border-radius:6px;cursor:pointer;}
+.particle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background: red;
+    border-radius: 50%;
+    filter: blur(6px);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s linear;
+}
+/* ================================
+   AGGRESSIVE CINEMATIC STYLE
+   BY GHALEB ABUBAKER — FINAL
+================================ */
 
-// Cursor trail
-document.addEventListener("mousemove",e=>{
- document.getElementById("cursor-trail").style.left=e.pageX+"px";
- document.getElementById("cursor-trail").style.top=e.pageY+"px";
-});
-
-// Lens flare
-document.addEventListener("mousemove",e=>{
- document.getElementById("lens-flare").style.left=e.pageX+"px";
- document.getElementById("lens-flare").style.top=e.pageY+"px";
-});
-
-// Scroll whoosh sound
-let whoosh=new Audio('assets/whoosh.mp3');
-window.addEventListener('scroll',()=>{
-  if(window.scrollY>50){ whoosh.play().catch(()=>{}); }
-});
-
-// Contact form
-document.getElementById("contactForm").addEventListener("submit",function(e){
- e.preventDefault();
- this.submit();
-});
-/* =========================================
-   Smooth Scroll for Hero Button
-========================================= */
-document.querySelector(".scroll-btn").addEventListener("click", (e) => {
-    e.preventDefault();
-    document.querySelector("#portfolio").scrollIntoView({ behavior: "smooth" });
-});
-
-/* =========================================
-   Services Animation on Scroll
-========================================= */
-const serviceBoxes = document.querySelectorAll(".service-box");
-
-const observer = new IntersectionObserver(
-    (entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("show");
-            }
-        });
-    },
-    { threshold: 0.2 }
-);
-
-serviceBoxes.forEach((box) => observer.observe(box));
-
-/* =========================================
-   ParticlesJS Loader
-========================================= */
-document.addEventListener("DOMContentLoaded", function () {
-    const particles = document.createElement("script");
-    particles.src = "https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js";
-
-    particles.onload = function () {
-        particlesJS("particles-js", {
-            particles: {
-                number: { value: 90 },
-                color: { value: "#ff1e1e" },
-                shape: { type: "circle" },
-                opacity: { value: 0.4 },
-                size: { value: 3 },
-                move: { speed: 2 },
-            },
-            interactivity: {
-                events: {
-                    onhover: { enable: true, mode: "repulse" },
-                },
-            },
-            retina_detect: true,
-        });
-    };
-
-    document.body.appendChild(particles);
-});
-
-/* =========================================
-   Story Viewer System (Instagram-style)
-========================================= */
-const stories = {
-    editing: ["videos/edit1.mp4", "videos/edit2.mp4"],
-    clients: ["videos/client1.mp4", "videos/client2.mp4"],
-    gear: ["videos/gear1.mp4"],
-    bts: ["videos/bts1.mp4"],
-};
-
-let currentStory = null;
-let currentIndex = 0;
-
-const storyViewer = document.getElementById("story-viewer");
-const storyVideo = document.getElementById("story-video");
-const storyProgress = document.querySelector(".story-progress");
-
-/* Open highlight */
-document.querySelectorAll(".highlight-item").forEach((item) => {
-    item.addEventListener("click", () => {
-        currentStory = item.dataset.story;
-        currentIndex = 0;
-        openStory();
-    });
-});
-
-/* Open story player */
-function openStory() {
-    storyViewer.style.display = "flex";
-    playStory();
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Poppins",sans-serif;
 }
 
-/* Load & play story */
-function playStory() {
-    const src = stories[currentStory][currentIndex];
-    storyVideo.src = src;
-    storyVideo.play();
-
-    storyProgress.style.transitionDuration = "5s";
-    storyProgress.style.width = "100%";
-
-    storyVideo.onended = () => nextStory();
+body{
+  background:#000;
+  color:#fff;
+  overflow-x:hidden;
 }
 
-/* Next video */
-function nextStory() {
-    currentIndex++;
-    if (currentIndex >= stories[currentStory].length) {
-        closeStory();
-        return;
-    }
-    storyProgress.style.width = "0%";
-    setTimeout(playStory, 100);
+/* ======================================
+   HERO (NO IMAGE) — AGGRESSIVE CINEMATIC
+====================================== */
+.hero{
+  position:relative;
+  height:100vh;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#070707;
+  overflow:hidden;
 }
 
-/* Close story */
-document.querySelector(".close-story").addEventListener("click", closeStory);
+/* Particles */
+#particles-js{
+  position:absolute;
+  inset:0;
+  z-index:1;
+}
 
-function closeStory() {
-    storyViewer.style.display = "none";
-    storyVideo.pause();
-    storyProgress.style.width = "0%";
+/* Red cinematic glow */
+.hero::before{
+  content:"";
+  position:absolute;
+  width:140%;
+  height:140%;
+  background:radial-gradient(circle at 50% 20%, #ff00004d, transparent 70%);
+  filter:blur(80px);
+  z-index:0;
+}
+
+.overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.75);
+  z-index:2;
+}
+
+.hero-content{
+  position:relative;
+  z-index:5;
+  text-align:center;
+  animation:fadeUp 1.2s ease-out forwards;
+  opacity:0;
+  transform:translateY(40px);
+}
+
+.hero-content h1{
+  font-size:3.4rem;
+  margin-bottom:10px;
+  font-weight:700;
+}
+
+.hero-content p{
+  font-size:1.3rem;
+  opacity:0.9;
+  margin-bottom:25px;
+}
+
+.cta-btn{
+  display:inline-block;
+  padding:12px 32px;
+  font-size:1rem;
+  background:#ff1e1e;
+  color:#fff;
+  border-radius:6px;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.cta-btn:hover{
+  background:#ff3d3d;
+  transform:translateY(-4px);
+}
+
+/* ======================================
+   INSTAGRAM GRID
+====================================== */
+.instagram-section{
+  padding:70px 20px;
+}
+
+.insta-title{
+  text-align:center;
+  font-size:1.8rem;
+  margin-bottom:30px;
+  font-weight:600;
+}
+
+.insta-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
+
+.insta-card{
+  background:#111;
+  padding:12px;
+  border-radius:10px;
+  overflow:hidden;
+  border:1px solid #222;
+  transition:0.3s;
+}
+
+.insta-card:hover{
+  transform:scale(1.03);
+  border-color:#ff1e1e;
+}
+
+/* ======================================
+   SERVICES — AGGRESSIVE ANIMATIONS
+====================================== */
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+  margin-top:40px;
+}
+
+.service-box{
+  background:#111;
+  padding:30px;
+  border-radius:12px;
+  border:1px solid #222;
+  opacity:0;
+  transform:translateY(40px) scale(0.95);
+  transition:0.8s ease-out;
+}
+
+.service-box.show{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
+
+.service-box h3{
+  font-size:1.4rem;
+  margin-bottom:10px;
+  color:#ff3b3b;
+}
+
+/* ======================================
+   CONTACT + FOOTER
+====================================== */
+footer{
+  text-align:center;
+  padding:40px 0;
+  background:#060606;
+  margin-top:60px;
+  border-top:1px solid #111;
+}
+
+/* ======================================
+   ANIMATIONS
+====================================== */
+@keyframes fadeUp{
+  0%{opacity:0; transform:translateY(40px);}
+  100%{opacity:1; transform:translateY(0);}
+}
+
+/* ======================================
+   RESPONSIVE ULTRA PRO
+====================================== */
+@media(max-width:500px){
+  .hero-content h1{ font-size:2.2rem; }
+  .hero-content p{ font-size:1rem; }
+  .cta-btn{ padding:10px 20px; font-size:0.9rem; }
+  .insta-grid{ grid-template-columns:1fr; }
+  .services-grid{ grid-template-columns:1fr; }
 }

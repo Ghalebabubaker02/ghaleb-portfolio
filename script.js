@@ -1,3 +1,40 @@
+// Loader
+let loader=document.getElementById("loader");
+let loaderText=document.getElementById("loader-text");
+let load=0;
+let int=setInterval(()=>{
+ load++;
+ loaderText.textContent=`Loading ${load}%`;
+ if(load>=100){
+  clearInterval(int);
+  loader.style.opacity="0";
+  setTimeout(()=>loader.style.display="none",900);
+ }
+},20);
+
+// Cursor trail
+document.addEventListener("mousemove",e=>{
+ document.getElementById("cursor-trail").style.left=e.pageX+"px";
+ document.getElementById("cursor-trail").style.top=e.pageY+"px";
+});
+
+// Lens flare
+document.addEventListener("mousemove",e=>{
+ document.getElementById("lens-flare").style.left=e.pageX+"px";
+ document.getElementById("lens-flare").style.top=e.pageY+"px";
+});
+
+// Scroll whoosh sound
+let whoosh=new Audio('assets/whoosh.mp3');
+window.addEventListener('scroll',()=>{
+  if(window.scrollY>50){ whoosh.play().catch(()=>{}); }
+});
+
+// Contact form
+document.getElementById("contactForm").addEventListener("submit",function(e){
+ e.preventDefault();
+ this.submit();
+});
 /* =========================================
    Smooth Scroll for Hero Button
 ========================================= */
